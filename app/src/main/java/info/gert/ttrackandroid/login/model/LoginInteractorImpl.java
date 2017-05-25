@@ -1,7 +1,9 @@
-package info.gert.ttrackandroid.login;
+package info.gert.ttrackandroid.login.model;
 
 import android.os.Handler;
 import android.text.TextUtils;
+
+import info.gert.ttrackandroid.login.model.LoginInteractor;
 
 public class LoginInteractorImpl implements LoginInteractor {
 

@@ -1,4 +1,8 @@
-package info.gert.ttrackandroid.login;
+package info.gert.ttrackandroid.login.presenter;
+
+import info.gert.ttrackandroid.login.model.LoginInteractor;
+import info.gert.ttrackandroid.login.model.LoginInteractorImpl;
+import info.gert.ttrackandroid.login.view.LoginView;
 
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener {
 

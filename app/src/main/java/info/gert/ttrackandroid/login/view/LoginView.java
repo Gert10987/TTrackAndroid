@@ -1,4 +1,4 @@
-package info.gert.ttrackandroid.login;
+package info.gert.ttrackandroid.login.view;
 
 public interface LoginView {
 

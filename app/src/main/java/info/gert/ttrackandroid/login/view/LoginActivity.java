@@ -1,4 +1,4 @@
-package info.gert.ttrackandroid.login;
+package info.gert.ttrackandroid.login.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,9 +11,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import info.gert.ttrackandroid.R;
-import info.gert.ttrackandroid.employer.EmployerActivity;
+import info.gert.ttrackandroid.employer.view.EmployerActivity;
+import info.gert.ttrackandroid.login.presenter.LoginPresenter;
+import info.gert.ttrackandroid.login.presenter.LoginPresenterImpl;
 
-public class LoginActivity extends Activity implements LoginView{
+public class LoginActivity extends Activity implements LoginView {
 
     //region MEMBERS
     @BindView(R.id.progress)
