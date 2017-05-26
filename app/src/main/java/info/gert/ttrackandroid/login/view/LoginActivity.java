@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,13 +20,13 @@ public class LoginActivity extends Activity implements LoginView {
 
     //region MEMBERS
     @BindView(R.id.progress)
-    private ProgressBar progressBar;
+    public ProgressBar progressBar;
 
     @BindView(R.id.username)
-    private EditText username;
+    public EditText username;
 
     @BindView(R.id.password)
-    private EditText password;
+    public EditText password;
 
     private LoginPresenter presenter;
     //endregion
@@ -71,8 +72,18 @@ public class LoginActivity extends Activity implements LoginView {
         finish();
     }
 
+    @Override
+    public void setConnectionError() {
+        Toast.makeText(this, "ConnectionError", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setWrongCredentialsError() {
+        Toast.makeText(this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
+    }
+
     @OnClick(R.id.button)
-    public void buttonClick() {
+    public void onClick(View v) {
         presenter.validateCredentials(username.getText().toString(), password.getText().toString());
     }
     //endregion

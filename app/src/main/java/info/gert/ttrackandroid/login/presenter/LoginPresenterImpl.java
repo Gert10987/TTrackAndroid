@@ -1,5 +1,6 @@
 package info.gert.ttrackandroid.login.presenter;
 
+import info.gert.ttrackandroid.HttpApi.ApiClient;
 import info.gert.ttrackandroid.login.model.LoginInteractor;
 import info.gert.ttrackandroid.login.model.LoginInteractorImpl;
 import info.gert.ttrackandroid.login.view.LoginView;
@@ -47,6 +48,14 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     public void onSuccess() {
         if (loginView != null) {
             loginView.navigateToHome();
+        }
+    }
+
+    @Override
+    public void onConnectionError() {
+        if (loginView != null) {
+            loginView.setConnectionError();
+            loginView.hideProgress();
         }
     }
 }

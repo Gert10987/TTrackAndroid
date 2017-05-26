@@ -11,4 +11,8 @@ public interface LoginView {
     void setPasswordError();
 
     void navigateToHome();
+
+    void setConnectionError();
+
+    void setWrongCredentialsError();
 }
