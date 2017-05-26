@@ -41,7 +41,7 @@ public class LoginInteractorImpl implements LoginInteractor {
                         @Override
                         public void onResponse(Call<Employer> call, Response<Employer> response) {
                             if (response.isSuccessful())
-                                listener.onSuccess();
+                                listener.onSuccess(response.body());
                             else
                                 listener.onWrongCredentialsError();
                         }

@@ -3,7 +3,9 @@ package info.gert.ttrackandroid.employer.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Employer {
+import java.io.Serializable;
+
+public class Employer implements Serializable{
 
     @SerializedName("id")
     @Expose

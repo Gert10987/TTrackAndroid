@@ -8,10 +8,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import info.gert.ttrackandroid.R;
+import info.gert.ttrackandroid.employer.model.Employer;
 import info.gert.ttrackandroid.employer.view.EmployerActivity;
 import info.gert.ttrackandroid.login.presenter.LoginPresenter;
 import info.gert.ttrackandroid.login.presenter.LoginPresenterImpl;
@@ -67,14 +70,17 @@ public class LoginActivity extends Activity implements LoginView {
         password.setError(getString(R.string.password_error));
     }
 
-    public void navigateToHome() {
-        startActivity(new Intent(this, EmployerActivity.class));
+    public void navigateToHome(Employer employer) {
+
+        Intent intent = new Intent(this, EmployerActivity.class);
+        intent.putExtra("CURRENT_EMPLOYER", employer);
+        startActivity(intent);
         finish();
     }
 
     @Override
     public void setConnectionError() {
-        Toast.makeText(this, "ConnectionError", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Connection Error", Toast.LENGTH_SHORT).show();
     }
 
     @Override

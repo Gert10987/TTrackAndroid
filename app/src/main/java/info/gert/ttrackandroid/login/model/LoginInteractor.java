@@ -1,5 +1,7 @@
 package info.gert.ttrackandroid.login.model;
 
+import info.gert.ttrackandroid.employer.model.Employer;
+
 public interface LoginInteractor {
 
     interface OnLoginFinishedListener {
@@ -8,7 +10,7 @@ public interface LoginInteractor {
 
         void onPasswordError();
 
-        void onSuccess();
+        void onSuccess(Employer employer);
 
         void onConnectionError();
 

@@ -1,5 +1,7 @@
 package info.gert.ttrackandroid.login.view;
 
+import info.gert.ttrackandroid.employer.model.Employer;
+
 public interface LoginView {
 
     void showProgress();
@@ -10,7 +12,7 @@ public interface LoginView {
 
     void setPasswordError();
 
-    void navigateToHome();
+    void navigateToHome(Employer employer);
 
     void setConnectionError();
 
