@@ -1,6 +1,5 @@
 package info.gert.ttrackandroid.login.presenter;
 
-import info.gert.ttrackandroid.HttpApi.ApiClient;
 import info.gert.ttrackandroid.employer.model.Employer;
 import info.gert.ttrackandroid.login.model.LoginInteractor;
 import info.gert.ttrackandroid.login.model.LoginInteractorImpl;
