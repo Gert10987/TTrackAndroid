@@ -1,4 +1,4 @@
-package info.gert.ttrackandroid.employer.view;
+package info.gert.ttrackandroid.employer.activities.view;
 
 import info.gert.ttrackandroid.employer.model.Employer;
 

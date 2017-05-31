@@ -1,4 +1,4 @@
-package info.gert.ttrackandroid.employer.view;
+package info.gert.ttrackandroid.employer.fragments.taskFragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,7 +14,6 @@ import info.gert.ttrackandroid.R;
  */
 
 public class TasksFragment extends Fragment {
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

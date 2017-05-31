@@ -8,14 +8,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import java.io.Serializable;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import info.gert.ttrackandroid.R;
 import info.gert.ttrackandroid.employer.model.Employer;
-import info.gert.ttrackandroid.employer.view.EmployerActivity;
+import info.gert.ttrackandroid.employer.activities.view.EmployerActivity;
 import info.gert.ttrackandroid.login.presenter.LoginPresenter;
 import info.gert.ttrackandroid.login.presenter.LoginPresenterImpl;
 

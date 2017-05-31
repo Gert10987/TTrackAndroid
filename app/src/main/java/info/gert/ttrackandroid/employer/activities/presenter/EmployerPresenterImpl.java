@@ -1,7 +1,7 @@
-package info.gert.ttrackandroid.employer.presenter;
+package info.gert.ttrackandroid.employer.activities.presenter;
 
 import info.gert.ttrackandroid.employer.model.Employer;
-import info.gert.ttrackandroid.employer.view.IEmployerView;
+import info.gert.ttrackandroid.employer.activities.view.IEmployerView;
 
 /**
  * Created by gert on 26.05.17.
@@ -27,19 +27,28 @@ public class EmployerPresenterImpl implements IEmployerPresenter {
         }
     }
 
+    @Override
     public String getFirstName(){
 
         return employer.getFirstName();
     }
 
+    @Override
     public String getLastName(){
 
         return employer.getLastName();
     }
 
-    public String getSsoId(){
+    @Override
+    public String getSsoId() {
 
         return employer.getSsoId();
+    }
+
+    @Override
+    public String getCurrentPosition(){
+
+        return employer.getCurrentPosition();
     }
 
     private Employer setEmployerFromIntent() {

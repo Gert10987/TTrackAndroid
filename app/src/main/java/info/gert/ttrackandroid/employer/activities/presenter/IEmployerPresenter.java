@@ -1,4 +1,4 @@
-package info.gert.ttrackandroid.employer.presenter;
+package info.gert.ttrackandroid.employer.activities.presenter;
 
 /**
  * Created by gert on 26.05.17.
@@ -13,4 +13,6 @@ public interface IEmployerPresenter {
     String getLastName();
 
     String getSsoId();
+
+    String getCurrentPosition();
 }

@@ -45,17 +45,16 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/love_music"
+                        android:id="@+id/employerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/backdrop_title"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/backdrop_title" />
 
                     <TextView
+                        android:id="@+id/employerSSoId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/backdrop_subtitle"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/backdrop_subtitle" />
 
@@ -76,9 +75,9 @@
 
     <fragment
         android:id="@+id/employerFragment"
-        class="info.gert.ttrackandroid.employer.view.EmployerFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        class="info.gert.ttrackandroid.employer.fragments.employerFragment.EmployerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" >
     </fragment>

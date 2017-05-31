@@ -1,10 +1,11 @@
-package info.gert.ttrackandroid.employer.view;
+package info.gert.ttrackandroid.task;
 
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 import info.gert.ttrackandroid.R;
+import info.gert.ttrackandroid.employer.fragments.taskFragment.TasksFragment;
 
 /**
  * Created by gert on 31.05.17.
@@ -16,8 +17,6 @@ public class TasksActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // jeżeli użytkownik będzie w orientacji landscape, należy zamknąć
-        // aktywność
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             finish();
             return;
