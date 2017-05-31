@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
     public static Retrofit retrofit = null;
-    private static String baseUrl = "url_service/";
+    private static String baseUrl = "https://test-ttrack.herokuapp.com/restApi/";
 
     public static Retrofit login(final String username, final String password) {
 

@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="@string/user_name"
         android:drawablePadding="8dp"
         />
     <EditText
@@ -20,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:hint="@string/password"
         android:inputType="textPassword"
         android:drawablePadding="8dp"
         />
@@ -28,7 +26,6 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_in"
         />
     <ProgressBar
         android:id="@+id/progress"

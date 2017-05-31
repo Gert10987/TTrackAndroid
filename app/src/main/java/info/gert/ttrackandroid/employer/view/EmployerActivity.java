@@ -1,51 +1,75 @@
 package info.gert.ttrackandroid.employer.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import info.gert.ttrackandroid.R;
-import info.gert.ttrackandroid.employer.model.Employer;
-import info.gert.ttrackandroid.employer.presenter.EmployerPresenterImpl;
-import info.gert.ttrackandroid.employer.presenter.IEmployerPresenter;
 
-public class EmployerActivity extends AppCompatActivity implements IEmployerView{
-
-    @BindView(R.id.textView)
-    TextView firstName;
-
-    @BindView(R.id.textView2)
-    TextView lastName;
-
-    @BindView(R.id.textView3)
-    TextView ssoId;
-
-    private IEmployerPresenter employerPresenter;
+public class EmployerActivity extends AppCompatActivity implements
+        EmployerFragment.OverviewFragmentActivityListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer);
 
-        ButterKnife.bind(this);
-        employerPresenter = new EmployerPresenterImpl(this);
-        employerPresenter.init();
+        initToolbar();
     }
 
-    @Override
-    public void init() {
+    private void initToolbar() {
 
-        firstName.setText(employerPresenter.getFirstName());
-        lastName.setText(employerPresenter.getLastName());
-        ssoId.setText(employerPresenter.getSsoId());
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        initCollapsingToolbar();
     }
 
+    // ta metoda pochodzi z OverviewFragmentActivityListener
     @Override
-    public Employer getModelFromIntent() {
+    public void onItemSelected(String msg) {
+        TasksFragment fragment = (TasksFragment) getFragmentManager()
+                .findFragmentById(R.id.tasksFragment);
+        // jeżeli fragment istnieje w tej aktywności,
+        // znaczy, że jesteśmy w trybie landscape
+        if (fragment != null && fragment.isInLayout()) {
+            fragment.setText(msg);
+        } else {
+            // w trybie portrait wywołujemy drugą aktywność
+            Intent intent = new Intent(getApplicationContext(),
+                    TasksActivity.class);
+            intent.putExtra("msg", msg);
+            startActivity(intent);
+        }
+    }
 
-        Employer model = (Employer) getIntent().getSerializableExtra("CURRENT_EMPLOYER");
-        return model;
+    private void initCollapsingToolbar() {
+        final CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle(" ");
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        appBarLayout.setExpanded(true);
+
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbar.setTitle(getString(R.string.app_name));
+                    isShow = true;
+                } else if (isShow) {
+                    collapsingToolbar.setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
     }
 }
